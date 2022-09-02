@@ -1,0 +1,18 @@
+.wrapper {
+  color: #fff;
+  cursor: pointer;
+  margin-right: 8px;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+
+  &.primary {
+    background-color: #f28e19;
+  }
+
+  &.btn-primary:hover {
+    background-color: #eca554;
+    transition: all 0.3s ease-in;
+  }
+}

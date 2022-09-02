@@ -1,0 +1,92 @@
+.container {
+  background-color: #f5f5f5;
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  width: 100%;
+}
+
+.content {
+  padding: 60px 100px;
+  width: 100%;
+}
+
+.section {
+  background-color: #fff;
+  border-radius: 4px;
+  margin-bottom: 40px;
+}
+.main {
+  margin-left: 15%;
+}
+/* table */
+.wrapper-table {
+  padding: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #333;
+  padding: 8px;
+}
+
+.table tr {
+  border-bottom: 2px solid #ccc;
+  height: 50px;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tr:hover {
+  background-color: #ddd;
+}
+
+/* section__2 */
+.section__2 {
+  display: flex;
+  justify-content: space-between;
+}
+.section__2 .section__2-item:nth-child(1) {
+  margin-right: 4px;
+}
+.section__2 .section__2-item:nth-child(2) {
+  margin-left: 4px;
+}
+.section__2-item {
+  flex: 1;
+}
+
+/* form add device */
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.form__device {
+  text-align: center;
+}
+
+.form__device__input {
+  display: block;
+  width: 300px;
+  height: 60px;
+  outline: none;
+  margin-bottom: 20px;
+  padding: 0 8px;
+  background-color: #f6f3f3;
+  border-color: transparent;
+  border-radius: 4px;
+  color: #333;
+}
+
+.form__device__btn {
+  margin-right: 8px;
+  padding: 12px 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+}
