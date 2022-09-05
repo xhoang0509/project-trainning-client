@@ -1,12 +1,31 @@
 import classNames from 'classnames/bind';
+import { useEffect, useState } from 'react';
 import Button from '../../src/components/Button';
 import InputField from '../../src/components/Input';
 import MainLayout from '../../src/layouts/MainLayout';
 import styles from './styles.module.scss';
+import logApi from '../../src/api/logApi';
 
 const cx = classNames.bind(styles);
 
 function LogsPage() {
+  const [loading, setLoading] = useState()
+  const [logs, setLogs] = useState([])
+
+  useEffect(() => {
+    try {
+      (async () => {
+        setLoading(true)
+        const res = await logApi.getAll()
+        setLogs(res.data.data.logs)
+        setLoading(false)
+      })()
+    } catch (error) {
+      console.log('Error: ', error);
+      setLoading(false)
+    }
+  }, [])
+
   return (
     <MainLayout>
       <div className={cx('action__heading')}>
@@ -27,7 +46,18 @@ function LogsPage() {
                 <th align="end">Date</th>
               </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+              {
+                logs && logs.map(item => (
+                  <tr key={item.id}>
+                    <td>{item.deviceId}</td>
+                    <td align="end">{item.name}</td>
+                    <td align="end">{item.action}</td>
+                    <td align="end">{item.createdAt}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
           </table>
           <div></div>
         </div>

@@ -47,18 +47,17 @@ function Sidebar() {
       </div>
       <ul className={cx('sidebar__list')}>
         {list.map((item, index) => (
-          <li
-            key={index}
-            className={cx(
-              'sidebar__item',
-              item.disable ? 'disable' : item.link === pathname ? 'active' : ''
-            )}
-          >
-            <FontAwesomeIcon icon={item.icon} className={cx('sidebar__icon')} />
-            <Link href={item.link}>
+          <Link href={item.link} key={index}>
+            <li
+              className={cx(
+                'sidebar__item',
+                item.disable ? 'disable' : item.link === pathname ? 'active' : ''
+              )}
+            >
+              <FontAwesomeIcon icon={item.icon} className={cx('sidebar__icon')} />
               <span>{item.name}</span>
-            </Link>
-          </li>
+            </li>
+          </Link>
         ))}
       </ul>
     </div>

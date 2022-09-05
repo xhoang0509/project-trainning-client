@@ -3,9 +3,9 @@ import styles from "./styles.module.scss";
 
 const cx = classNames.bind(styles);
 
-function Button({ primary, children }) {
+function Button({ onClick, primary, children }) {
   const classNames = cx("wrapper", primary && "primary");
-  return <button className={classNames}>{children}</button>;
+  return <button onClick={onClick} className={classNames}>{children}</button>;
 }
 
 export default Button;

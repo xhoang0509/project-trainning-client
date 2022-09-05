@@ -1,6 +1,11 @@
 import Head from 'next/head';
+import React from 'react';
 import MainLayout from '../src/layouts/MainLayout';
 import HomePage from './home';
+
+
+
+const store = React.createContext({})
 
 export default function Home() {
   return (

@@ -1,16 +1,15 @@
 import classNames from 'classnames/bind';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import deviceApi from '../../src/api/deviceApi';
-import Button from '../../src/components/Button';
-import InputField from '../../src/components/Input';
+import FormCreateDevice from './components/FormCreateDevice';
 import styles from './styles.module.scss';
-import Chart from '../../src/components/Chart';
 
 const cx = classNames.bind(styles);
 
 function HomePage() {
   const [devices, setDevices] = useState([]);
   const [loading, setLoading] = useState();
+  const [refresh, setRefresh] = useState();
 
   useEffect(() => {
     try {
@@ -25,6 +24,10 @@ function HomePage() {
       setLoading(false);
     }
   }, []);
+
+  // const handleRefresh = (value) => {
+  //   setRefresh(value);
+  // };
 
   return (
     <>
@@ -44,15 +47,18 @@ function HomePage() {
             <tbody>
               {!loading &&
                 devices &&
-                devices.map((item) => (
-                  <tr key={item.id}>
-                    <td>{item.name}</td>
-                    <td align="end">{item.macAddress}</td>
-                    <td align="end">{item.IP}</td>
-                    <td align="end">{item.createdAt}</td>
-                    <td align="end">{item.power}</td>
-                  </tr>
-                ))}
+                devices.map((item) => {
+                  const createdAtFormat = item.createdAt.split('T')[0];
+                  return (
+                    <tr key={item.id}>
+                      <td>{item.name}</td>
+                      <td align="end">{item.macAddress}</td>
+                      <td align="end">{item.IP}</td>
+                      <td align="end">{createdAtFormat}</td>
+                      <td align="end">{item.power}</td>
+                    </tr>
+                  );
+                })}
             </tbody>
           </table>
         </div>
@@ -61,12 +67,7 @@ function HomePage() {
         <div className={cx('section__2-item', 'section')}>{/* <Chart /> */}</div>
         <div className={cx('section__2-item', 'section')}>
           <div className={cx('wrapper')}>
-            <form className="form__device">
-              <InputField type="text" placeholder="Name" required />
-              <InputField type="text" placeholder="IP" required />
-              <InputField type="number" placeholder="Power" min="0" step="1" required />
-              <Button primary>ADD DEVICE</Button>
-            </form>
+            <FormCreateDevice />
           </div>
         </div>
       </div>

@@ -3,12 +3,24 @@ import styles from './styles.module.css';
 
 const cx = classNames.bind(styles);
 
-function InputField({ className, type, value, placeholder, min, max, required }) {
+function InputField({
+  onChange,
+  onFocus,
+  className,
+  type,
+  value,
+  placeholder,
+  min,
+  max,
+  required,
+}) {
   return (
     <input
+      value={value}
+      onChange={onChange}
+      onFocus={onFocus}
       className={cx('wrapper', className)}
       type={type || 'text'}
-      value={value}
       placeholder={placeholder}
       required={required}
       min={min}

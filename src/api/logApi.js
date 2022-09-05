@@ -11,3 +11,6 @@ const logApi = {
     return axiosClient.post(url, data);
   },
 };
+
+
+export default logApi
