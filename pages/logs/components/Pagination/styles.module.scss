@@ -1,0 +1,32 @@
+.wrapper-pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  display: flex;
+
+  &__item {
+    width: 30px;
+    height: 30px;
+    background-color: #588ef8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin: 0 8px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #2053b9;
+      transition: all 0.3s ease-in;
+      user-select: none;
+    }
+
+    &.active {
+      cursor: default;
+      background-color: #ccc;
+    }
+  }
+}

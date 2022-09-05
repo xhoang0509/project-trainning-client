@@ -3,7 +3,7 @@ import Button from '../../../src/components/Button';
 import InputField from '../../../src/components/Input';
 import deviceApi from '../../../src/api/deviceApi';
 
-function FormCreateDevice() {
+function FormCreateDevice({ onFormSubmit, loading, setLoading }) {
   const [formValue, setFormValue] = useState({
     name: '',
     IP: '',
@@ -24,6 +24,7 @@ function FormCreateDevice() {
 
   const handleSubmit = async () => {
     await deviceApi.create(formValue);
+    onFormSubmit();
   };
 
   return (

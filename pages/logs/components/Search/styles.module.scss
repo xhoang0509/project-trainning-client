@@ -1,0 +1,14 @@
+.search {
+  &__input {
+    width: 200px;
+    height: 30px;
+    outline: none;
+    padding: 0 8px;
+    border-color: transparent;
+    border-radius: 4px;
+    color: #333;
+    background-color: #eae1e1;
+    display: inline-block;
+    margin-right: 8px;
+  }
+}

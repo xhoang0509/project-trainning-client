@@ -1,8 +1,8 @@
 import axiosClient from './axiosClient';
 
 const logApi = {
-  getAll() {
-    const url = '/logs';
+  getAll(data) {
+    const url = `/logs?q=${data.q}&page=${data.page}`;
     return axiosClient.get(url);
   },
 
@@ -12,5 +12,4 @@ const logApi = {
   },
 };
 
-
-export default logApi
+export default logApi;

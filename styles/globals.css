@@ -55,3 +55,11 @@ body {
 .table tr:hover {
   background-color: #ddd;
 }
+
+/* section */
+
+.section {
+  background-color: #fff;
+  border-radius: 4px;
+  margin-bottom: 40px;
+}

@@ -7,11 +7,14 @@ import InputField from '../../src/components/Input';
 import FormAuthLayout from '../../src/layouts/FormAuthLayout';
 import styles from './styles.module.scss';
 import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
+import { login } from '../../src/redux/userSlice';
 
 const cx = classNames.bind(styles);
 
 function LoginPage() {
   const router = useRouter();
+  const dispatch = useDispatch();
 
   // page state
   const [value, setValue] = useState({
@@ -37,6 +40,7 @@ function LoginPage() {
     const { status } = res.data;
     if (status === 'success') {
       router.push('/');
+      dispatch(login(res.data.data.user));
     } else if (status) {
       setMessage(res.data.message);
     }
